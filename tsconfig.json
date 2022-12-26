@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist/",
+		"noImplicitAny": true,
+		"target": "ES5",
+		"module": "ESNext",
+		"jsx": "react",
+		"lib": ["ES2016", "DOM", "DOM.Iterable"],
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"allowJs": true,
+		"moduleResolution": "node",
+		"skipLibCheck": true
+	}
+}
