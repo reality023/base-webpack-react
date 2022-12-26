@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin"); // index.html 파일�
 
 module.exports = {
 	// moduel export (옛날 방식..)
-	entry: "./src/index.js", // 리액트 파일이 시작하는 곳
+	entry: "./src/index.tsx", // 리액트 파일이 시작하는 곳
 	output: {
 		// bundled compiled 파일
 		path: path.join(__dirname, "/dist"), //__dirname : 현재 디렉토리, dist 폴더에 모든 컴파일된 하나의 번들파일을 넣을 예정
@@ -20,11 +20,24 @@ module.exports = {
 				},
 			},
 			{
+				test: /\.tsx?$/,
+				exclude: /node_module/,
+				loader: "babel-loader",
+			},
+			{
+				test: /\.tsx?$/,
+				exclude: /node_module/,
+				loader: "ts-loader",
+			},
+			{
 				test: /\.scss$/,
 				exclude: /node_module/,
 				use: ["style-loader", "css-loader", "sass-loader"],
 			},
 		],
+	},
+	resolve: {
+		extensions: [".js", ".jsx", ".ts", ".tsx"],
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
